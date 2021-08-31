@@ -1,12 +1,12 @@
-import { Action } from 'redux';
 import * as types from './types';
-import { SetNumberAction, IncreceNumberAction, DecreceNumberAction } from './interfaces';
+import { createSlice, configureStore, PayloadAction } from '@reduxjs/toolkit';
+import { SetNumberAction, IncreaceNumberAction, DecreaceNumberAction } from './interfaces';
 
-export const increceNumber = (): IncreceNumberAction => ({
+export const increaceNumber = (): IncreaceNumberAction => ({
   type: types.INCREMENT
 });
 
-export const decreseNumber = (): DecreceNumberAction => ({
+export const decreaseNumber = (): DecreaceNumberAction => ({
   type: types.DECREMENT
 });
 

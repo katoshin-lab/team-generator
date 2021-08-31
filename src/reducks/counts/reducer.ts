@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import * as types from './types';
 import { CounterState, CountActionTypes } from './interfaces';
 
@@ -30,8 +29,4 @@ const counts = (state = initialState, action: CountActionTypes): CounterState =>
   }
 }
 
-const reducer = combineReducers({
-  counts
-})
-
-export default reducer;
+export default counts;

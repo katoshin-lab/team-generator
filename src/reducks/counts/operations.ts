@@ -1,5 +1,8 @@
 import * as actions from './actions';
+import type { AppDispatch } from '../store'
 
-export const increse = actions.increceNumber;
-export const decrese = actions.decreseNumber;
-export const set = (num: number = 0) => dispatch => dispatch(actions.setNumber(num));
+export const increase = actions.increaceNumber;
+export const decrease = actions.decreaseNumber;
+export const set = (num: number = 0) => (async (dispatch: AppDispatch) => {
+  dispatch(actions.setNumber(num));
+})
