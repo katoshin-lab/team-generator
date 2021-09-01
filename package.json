@@ -15,7 +15,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "typescript-fsa": "^3.0.0",
-    "typescript-fsa-reducers": "^1.2.2"
+    "typescript-fsa-reducers": "^1.2.2",
+    "typescript-fsa-redux-thunk": "^2.10.1"
   },
   "devDependencies": {
     "@types/node": "^16.7.2",
