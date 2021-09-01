@@ -17,13 +17,10 @@ const counts = reducerWithInitialState(initialState)
   )
   .case(
     actions.setNumber,
-    (state, payload) => {
-      console.log(payload);
-      return {
-        ...state,
-        number: payload.num
-      }
-    }
+    (state, payload) => ({
+      ...state,
+      number: payload.num
+    })
   );
 
 export default counts;
