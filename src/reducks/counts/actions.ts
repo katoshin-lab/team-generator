@@ -1,16 +1,8 @@
-import * as types from './types';
-import { createSlice, configureStore, PayloadAction } from '@reduxjs/toolkit';
-import { SetNumberAction, IncreaceNumberAction, DecreaceNumberAction } from './interfaces';
+import actionCreatorFactory from 'typescript-fsa';
+import * as types from './types'
 
-export const increaceNumber = (): IncreaceNumberAction => ({
-  type: types.INCREMENT
-});
+const actionCreator = actionCreatorFactory();
 
-export const decreaseNumber = (): DecreaceNumberAction => ({
-  type: types.DECREMENT
-});
-
-export const setNumber = (num: number = 0): SetNumberAction => ({
-  type: types.RESET,
-  num: num
-});
+export const increaceNumber = actionCreator(types.INCREMENT);
+export const decreaseNumber = actionCreator(types.DECREMENT);
+export const setNumber = actionCreator<types.SetNumberAction>(types.RESET);
