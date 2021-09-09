@@ -8,5 +8,8 @@ export default NextAuth({
       clientSecret: process.env.COGNITO_CLIENT_SECRET,
       domain: process.env.COGNITO_DOMAIN
     })
-  ]
+  ],
+  pages: {
+    signIn: '/',
+  }
 });
