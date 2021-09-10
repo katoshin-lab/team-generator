@@ -7,9 +7,13 @@ export default NextAuth({
       clientId: process.env.COGNITO_CLIENT_ID,
       clientSecret: process.env.COGNITO_CLIENT_SECRET,
       domain: process.env.COGNITO_DOMAIN
+    }),
+    Providers.Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
   pages: {
-    signIn: '/',
+    signIn: '/'
   }
 });
