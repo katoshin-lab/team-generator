@@ -1,6 +1,9 @@
 import React from "react";
 import { useSession, signOut, signIn, providers, ClientSafeProvider } from "next-auth/client";
 import Link from 'next/link';
+import styled from 'styled-components';
+
+import Header from '../components/organisms/header';
 
 const Index = ({ providers }):JSX.Element => {
   const [session, loading] = useSession();
@@ -17,6 +20,7 @@ const Index = ({ providers }):JSX.Element => {
 
   return (
     <>
+      <Header />
       <Link href="/signin">
         <a>signin</a>
       </Link>
@@ -27,9 +31,7 @@ const Index = ({ providers }):JSX.Element => {
         <button key={index} onClick={() => signIn(provider.id)}>
           singin with {provider.name}
         </button>
-      ))
-
-      }
+      ))}
     </>
   )
 }
