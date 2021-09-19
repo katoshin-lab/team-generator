@@ -4,9 +4,13 @@ import styled from 'styled-components';
 // components
 import Typography from '../atoms/typography';
 
-const Header = () => {
+type HeaderProps = {
+  refObject: React.MutableRefObject<HTMLElement>
+}
+
+const Header = ({ refObject }: HeaderProps) => {
   return (
-    <StyledHeader>
+    <StyledHeader ref={refObject}>
       <Typography size='lg' bold={true} >Team-Generator</Typography>
     </StyledHeader>
   )
@@ -14,6 +18,7 @@ const Header = () => {
 
 const StyledHeader = styled.header`
     width: 100%;
+    height: 60px;
     position: fixed;
     top: 0;
     background-color: aqua;
