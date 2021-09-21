@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // components
 import Typography from '../atoms/typography';
+import AvailableWidthLimitter from '../atoms/availableWidthLimitter';
 
 type HeaderProps = {
   refObject: React.MutableRefObject<HTMLElement>
@@ -11,7 +12,9 @@ type HeaderProps = {
 const Header = ({ refObject }: HeaderProps) => {
   return (
     <StyledHeader ref={refObject}>
-      <Typography size='lg' bold={true} >Team-Generator</Typography>
+      <AvailableWidthLimitter>
+        <Typography size='lg' bold={true} >Team-Generator</Typography>
+      </AvailableWidthLimitter>
     </StyledHeader>
   )
 }

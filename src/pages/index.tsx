@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import { useSession, signOut, signIn, providers, ClientSafeProvider } from "next-auth/client";
 import Link from 'next/link';
 import styled from 'styled-components';
-
+// components
 import Header from '../components/organisms/header';
+import AvailableWidthLimitter from "../components/atoms/availableWidthLimitter";
 // hooks
 import useResizeObserver from "../hooks/commons/resizeObserver";
 
@@ -31,17 +32,19 @@ const Index = ({ providers }):JSX.Element => {
     <>
       <Header refObject={headerElement} />
       <StyledContentWrapper headerHeight={headerHeight}>
-        <Link href="/signin">
-          <a>signin</a>
-        </Link>
-        <div>{ status() }</div>
-        <button onClick={() => signIn()}>signin</button>
-        <button onClick={() => signOut()}>signout</button>
-        {Object.values(providers).map((provider: ClientSafeProvider , index): JSX.Element => (
-          <button key={index} onClick={() => signIn(provider.id)}>
-            singin with {provider.name}
-          </button>
-        ))}
+        <AvailableWidthLimitter>
+          <Link href="/signin">
+            <a>signin</a>
+          </Link>
+          <div>{ status() }</div>
+          <button onClick={() => signIn()}>signin</button>
+          <button onClick={() => signOut()}>signout</button>
+          {Object.values(providers).map((provider: ClientSafeProvider , index): JSX.Element => (
+            <button key={index} onClick={() => signIn(provider.id)}>
+              singin with {provider.name}
+            </button>
+          ))}
+        </AvailableWidthLimitter>
       </StyledContentWrapper>
     </>
   )
