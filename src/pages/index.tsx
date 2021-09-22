@@ -37,8 +37,6 @@ const Index = ({ providers }):JSX.Element => {
             <a>signin</a>
           </Link>
           <div>{ status() }</div>
-          <button onClick={() => signIn()}>signin</button>
-          <button onClick={() => signOut()}>signout</button>
           {Object.values(providers).map((provider: ClientSafeProvider , index): JSX.Element => (
             <button key={index} onClick={() => signIn(provider.id)}>
               singin with {provider.name}
