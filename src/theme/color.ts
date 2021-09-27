@@ -1,4 +1,4 @@
-const color = {
+const color: Color = {
   light: {
     main: "#f6f7d7",
     sub: "#fbfcef",
@@ -20,3 +20,18 @@ const color = {
 };
 
 export default color;
+
+export interface Color {
+  light: ColorSet;
+  dark: ColorSet;
+}
+
+interface ColorSet {
+  main: string;
+  sub: string;
+  second: string;
+  third: string;
+  fourth: string;
+  mainText: string;
+  secondText: string;
+}
