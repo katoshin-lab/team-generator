@@ -26,7 +26,7 @@ const Index = ({ providers }):JSX.Element => {
   const headerResizeCallback = (entries: ResizeObserverEntry[]): void => {
     setHeaderHeight(entries[0].contentRect.height)
   }
-  useResizeObserver([headerElement], headerResizeCallback)
+  useResizeObserver([headerElement], headerResizeCallback);
 
   return (
     <>
@@ -53,6 +53,8 @@ type ContentWrapperProps = {
 }
 const StyledContentWrapper = styled.div<ContentWrapperProps>`
   margin-top: ${props => props.headerHeight}px;
+  height: calc(100vh - ${props => props.headerHeight}px);
+  background-color: ${({ theme }) => theme.light.main};
 `
 
 export async function getServerSideProps() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-
+import styled, { ThemeProviderProps } from 'styled-components';
+import color from '../../theme/color';
 // components
 import Typography from '../atoms/typography';
 import AvailableWidthLimitter from '../atoms/availableWidthLimitter';
@@ -24,8 +24,7 @@ const StyledHeader = styled.header`
     height: 60px;
     position: fixed;
     top: 0;
-    background-color: aqua;
-
+    background-color: ${({ theme }) => theme.light.sub};
 `
 
 export default Header;
