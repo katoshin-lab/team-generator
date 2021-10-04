@@ -1,7 +1,7 @@
 const color: Color = {
   light: {
     main: "#f6f7d7",
-    sub: "#fbfcef",
+    sub: "#fbfce9",
     second: "#3ec1d3",
     third: "#ff9a00",
     fourth: "#ff165d",
