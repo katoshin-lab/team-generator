@@ -4,6 +4,7 @@ import styled from 'styled-components';
 type TypoProps = {
   size: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | number,
   bold?: boolean,
+  className?: string,
 }
 
 const Sizes = {
