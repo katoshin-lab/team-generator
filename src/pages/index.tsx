@@ -5,6 +5,7 @@ import styled from 'styled-components';
 // components
 import Header from '../components/organisms/header';
 import AvailableWidthLimitter from "../components/atoms/availableWidthLimitter";
+import Modal from '../components/organisms/modal';
 // hooks
 import useResizeObserver from "../hooks/commons/resizeObserver";
 
@@ -28,6 +29,8 @@ const Index = ({ providers }):JSX.Element => {
   }
   useResizeObserver([headerElement], headerResizeCallback);
 
+  const [openModal, setOpemModal] = useState(false);
+
   return (
     <>
       <Header refObject={headerElement} />
@@ -36,14 +39,22 @@ const Index = ({ providers }):JSX.Element => {
           <Link href="/signin">
             <a>signin</a>
           </Link>
-          <div>{ status() }</div>
-          {Object.values(providers).map((provider: ClientSafeProvider , index): JSX.Element => (
+          <div>{status()}</div>
+          <button onClick={() => setOpemModal(!openModal)}>open</button>
+        </AvailableWidthLimitter>
+      </StyledContentWrapper>
+      {openModal &&
+        <Modal
+        setOpenModal={setOpemModal}
+        render={() => (
+          Object.values(providers).map((provider: ClientSafeProvider, index): JSX.Element => (
             <button key={index} onClick={() => signIn(provider.id)}>
               singin with {provider.name}
             </button>
-          ))}
-        </AvailableWidthLimitter>
-      </StyledContentWrapper>
+          ))
+        )}
+        />
+      }
     </>
   )
 }
