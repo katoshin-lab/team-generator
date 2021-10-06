@@ -21,7 +21,8 @@ const StyledModal = styled.div`
   height: fit-content;
   min-height: 300px;
   max-height: 90%;
-  background-color: ${({theme}) => theme.light.second};
+  background-color: ${({ theme }) => theme.light.second};
+  border-radius: 10px;
 `
 
 export default Modal;
