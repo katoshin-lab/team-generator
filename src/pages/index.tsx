@@ -8,6 +8,7 @@ import AvailableWidthLimitter from "../components/atoms/availableWidthLimitter";
 import Modal from '../components/organisms/modal';
 // hooks
 import useResizeObserver from "../hooks/commons/resizeObserver";
+import { AnimatePresence } from "framer-motion";
 
 const Index = ({ providers }):JSX.Element => {
   const [session, loading] = useSession();
@@ -29,7 +30,7 @@ const Index = ({ providers }):JSX.Element => {
   }
   useResizeObserver([headerElement], headerResizeCallback);
 
-  const [openModal, setOpemModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
@@ -40,12 +41,13 @@ const Index = ({ providers }):JSX.Element => {
             <a>signin</a>
           </Link>
           <div>{status()}</div>
-          <button onClick={() => setOpemModal(!openModal)}>open</button>
+          <button onClick={() => setOpenModal(!openModal)}>open</button>
         </AvailableWidthLimitter>
       </StyledContentWrapper>
+      <AnimatePresence>
       {openModal &&
         <Modal
-        setOpenModal={setOpemModal}
+        setOpenModal={setOpenModal}
         render={() => (
           Object.values(providers).map((provider: ClientSafeProvider, index): JSX.Element => (
             <button key={index} onClick={() => signIn(provider.id)}>
@@ -54,7 +56,8 @@ const Index = ({ providers }):JSX.Element => {
           ))
         )}
         />
-      }
+        }
+      </AnimatePresence>
     </>
   )
 }
