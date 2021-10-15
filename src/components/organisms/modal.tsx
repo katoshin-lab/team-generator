@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import DownwordFade from '../atoms/downwordFade';
 
 const Modal = ({ render, setOpenModal }) => {
+
   return (
     <StyledModal>
-      <button onClick={() => setOpenModal(false)}>閉じる</button>
-      { render() }
+      <DownwordFade>
+          <button onClick={() => setOpenModal(false)}>閉じる</button>
+          {render()}
+      </DownwordFade>
     </StyledModal>
   )
 }
@@ -18,11 +22,13 @@ const StyledModal = styled.div`
   width: 90%;
   min-width: 300px;
   max-width: 600px;
-  height: fit-content;
+  height: 10%;
   min-height: 300px;
   max-height: 90%;
-  background-color: ${({ theme }) => theme.light.second};
   border-radius: 10px;
+  >div {
+    background-color: ${({ theme }) => theme.light.second};
+  }
 `
 
 export default Modal;
